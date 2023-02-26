@@ -1,7 +1,8 @@
 import { Button, Card, Col, Form, Popconfirm, Radio, Row, Skeleton, Space, Tag, Typography } from 'antd'
-import { useEffect, useState } from 'react'
 import axios from 'axios'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
 
 export default function soal() {
 
@@ -10,15 +11,22 @@ export default function soal() {
     const [data, setdata] = useState([]) as any
     const [loading, setloading] = useState(true)
     useEffect(() => {
-        var x = localStorage.getItem("data");
-        if (x) {
-            setdata(JSON.parse(x))
-            setloading(false)
+        var token = localStorage.getItem("token");
+        if (token) {
 
+            var x = localStorage.getItem("data");
+            if (x) {
+                setdata(JSON.parse(x))
+                setloading(false)
+
+            } else {
+
+                getData()
+            }
         } else {
-
-            getData()
+            router.push("/")
         }
+
 
 
     }, [])
@@ -62,6 +70,11 @@ export default function soal() {
     };
     return (
         <>
+            <div style={{ paddingRight: 30, textAlign: "right" }}>
+                <Link href={"/"}> <Button onClick={() => {
+                    localStorage.removeItem("token");
+                }} danger type='primary'>Logout</Button></Link>
+            </div>
             <div className='layout-main' style={{}}>
 
                 <Typography.Title style={{ textAlign: 'center' }} level={1}>Free Quiz</Typography.Title>

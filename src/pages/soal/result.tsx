@@ -1,8 +1,6 @@
-import Head from 'next/head'
-import { Button, Modal, Result, Space } from 'antd'
-import { useEffect, useState } from 'react'
-import axios from 'axios';
+import { Button, Modal, Result, Space } from 'antd';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 
 export default function result() {
@@ -37,10 +35,10 @@ export default function result() {
                 </Space>}
                 subTitle="Thank You For Submitting"
                 extra={[
-                    <Link href={"/"}><Button type="primary" onClick={() => {
+                    <Link href={"/landing"}><Button type="primary" onClick={() => {
                         localStorage.removeItem("data");
 
-                    }}>Back To Home Page</Button></Link>,
+                    }}>Back To Landing Page</Button></Link>,
                 ]}
             />
 

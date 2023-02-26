@@ -2,8 +2,17 @@
   padding: 40px 50px;
 }
 
+.login-page .card-login {
+  width: 750px;
+}
+
 @media only screen and (max-width: 600px) {
   .layout-main {
+    padding: 5px;
+  }
+
+  .login-page .card-login {
+    max-width: 100%;
     padding: 5px;
   }
 }
