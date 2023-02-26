@@ -1,0 +1,9 @@
+.layout-main {
+  padding: 40px 50px;
+}
+
+@media only screen and (max-width: 600px) {
+  .layout-main {
+    padding: 5px;
+  }
+}
